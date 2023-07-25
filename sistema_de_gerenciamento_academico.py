@@ -3,10 +3,6 @@ import random
 
 
 def gerar_codigo() -> str:
-    """
-    Essa função gera um código aleatório de 9 dígitos.
-    :return: Retorna um código de 9 dígitos.
-    """
     return str(random.randint(100000000, 999999999))
 
 
@@ -19,23 +15,12 @@ def read_json(file_path):
 
 
 def write_json(data: dict, file_path: str) -> None:
-    """
-    Essa função escreve em um arquivo json.
-    :param data: Dados a serem escritos.
-    :param file_path: Caminho do arquivo a ser escrito.
-    :return: None
-    """
     with open(file_path, "w") as f:
         json.dump(data, f, indent=4)
         f.close()
 
 
 def cadastro_alunos() -> str:
-    """
-    Essa função estabelece o cadastro do aluno no sistema.
-    É criada uma chave de acesso única ao aluno, com 9 dígitos.
-    :return: Retorna que o aluno foi cadastrado com sucesso e seu número correspondente de matrícula.
-    """
     matricula = gerar_codigo()
     nome = input("Digite o nome do aluno: ")
     curso = input("Digite o curso do aluno: ")
@@ -52,11 +37,6 @@ def cadastro_alunos() -> str:
 
 
 def cadastro_professores() -> str:
-    """
-        Essa função estabelece o cadastro do professor no sistema.
-        É criada uma chave de acesso única ao professor, com 9 dígitos.
-        :return: Retorna que o professor foi cadastrado com sucesso e seu número correspondente de código.
-    """
     codigo_prof = gerar_codigo()
     nome = input("Digite o nome do professor: ")
     cpf = input("Digite o CPF do professor: ")
@@ -72,11 +52,6 @@ def cadastro_professores() -> str:
 
 
 def cadastro_disciplinas() -> str:
-    """
-        Essa função estabelece o cadastro da disciplina no sistema.
-        É criada uma chave de acesso única à disciplina, com 9 dígitos.
-        :return: Retorna que a disciplina foi cadastrada com sucesso e seu número correspondente de código.
-    """
     codigo_disc = gerar_codigo()
     nome = input("Digite o nome do professor: ")
     disciplina = {"Codigo": codigo_disc, "Nome": nome}
@@ -91,11 +66,6 @@ def cadastro_disciplinas() -> str:
 
 
 def cadastro_turmas() -> str:
-    """
-        Essa função estabelece o cadastro da disciplina no sistema.
-        É criada uma chave de acesso única à disciplina, com 9 dígitos.
-        :return: Retorna que a disciplina foi cadastrada com sucesso e seu número correspondente de código.
-    """
     codigo_turma = gerar_codigo()
     codigo_prof = gerar_codigo()
     codigo_disc = gerar_codigo()
@@ -111,11 +81,6 @@ def cadastro_turmas() -> str:
 
 
 def cadastro_matriculas():
-    """
-        Essa função estabelece o cadastro da matricula no sistema.
-        É criada uma chave de acesso única à matricula, com 9 dígitos.
-        :return: Retorna que a matricula foi cadastrada com sucesso e seu número correspondente de código.
-    """
     codigo_turma = gerar_codigo()
     codigo_aluno = gerar_codigo()
     matricula = {"Matricula": codigo_aluno, "Codigo": codigo_turma}
